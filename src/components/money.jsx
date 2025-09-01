@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { gsap } from 'gsap';
 import './money.css';
 
@@ -17,16 +17,7 @@ function Money() {
   const formRef = useRef(null);
   const successRef = useRef(null);
 
-  useEffect(() => {
-    // Initial animation
-    gsap.from('.form-container', { duration: 1, y: 50, opacity: 0 });
-    gsap.from('.step-indicator', { duration: 1, opacity: 0, stagger: 0.2 });
-  }, []);
 
-  useEffect(() => {
-    // Animate step changes
-    gsap.from('.form-step', { duration: 0.5, x: step % 2 === 0 ? 50 : -50, opacity: 0 });
-  }, [step]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -35,36 +26,30 @@ function Money() {
 
   const nextStep = () => {
     if (step < 3) {
-      gsap.to('.form-step', { duration: 0.3, opacity: 0, onComplete: () => {
-        setStep(step + 1);
-      }});
+      setStep(step + 1);
     }
   };
 
   const prevStep = () => {
     if (step > 1) {
-      gsap.to('.form-step', { duration: 0.3, opacity: 0, onComplete: () => {
-        setStep(step - 1);
-      }});
+      setStep(step - 1);
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     gsap.to('.form-container', { duration: 0.5, opacity: 0, onComplete: () => {
-      gsap.set(successRef.current, { display: 'block' });
-      gsap.fromTo(successRef.current, 
-        { y: 50, opacity: 0 }, 
-        { duration: 1, y: 0, opacity: 1 }
-      );
+      gsap.set('.form-container', { display: 'none' });
+      gsap.set(successRef.current, { display: 'block', opacity: 0 });
+      gsap.to(successRef.current, { duration: 1, opacity: 1, ease: "power2.out" });
     }});
   };
 
   const resetForm = () => {
     gsap.to(successRef.current, { duration: 0.5, opacity: 0, onComplete: () => {
-      gsap.set('.form-container', { display: 'flex', opacity: 0 });
-      gsap.to('.form-container', { duration: 1, opacity: 1 });
       gsap.set(successRef.current, { display: 'none' });
+      gsap.set('.form-container', { display: 'flex', opacity: 0 });
+      gsap.to('.form-container', { duration: 1, opacity: 1, ease: "power2.out" });
       setStep(1);
       setFormData({
         senderName: '',
@@ -79,7 +64,7 @@ function Money() {
   };
 
   return (
-    <div className="App">
+    <div className="money-app">
       <header className="header">
         <div className="logo">
           <i className="fas fa-money-bill-wave"></i>
@@ -167,10 +152,10 @@ function Money() {
                     required
                   >
                     <option value="">Select Bank</option>
-                    <option value="bank1">Chase Bank</option>
-                    <option value="bank2">Bank of America</option>
-                    <option value="bank3">Wells Fargo</option>
-                    <option value="bank4">Citibank</option>
+                    <option value="Chase Bank">Chase Bank</option>
+                    <option value="Bank of America">Bank of America</option>
+                    <option value="Wells Fargo">Wells Fargo</option>
+                    <option value="Citibank">Citibank</option>
                   </select>
                   <label>Bank Name</label>
                 </div>
@@ -227,7 +212,7 @@ function Money() {
           </form>
         </div>
 
-        <div className="success-message" ref={successRef}>
+        <div className="success-message" ref={successRef} style={{display: 'none'}}>
           <div className="success-icon">
             <i className="fas fa-check-circle"></i>
           </div>
