@@ -4,6 +4,7 @@ import './money.css';
 
 function Money() {
   const [step, setStep] = useState(1);
+  const [selectedMethod, setSelectedMethod] = useState('');
   const [formData, setFormData] = useState({
     senderName: '',
     senderAccount: '',
@@ -11,13 +12,21 @@ function Money() {
     recipientAccount: '',
     bank: '',
     amount: '',
-    description: ''
+    description: '',
+    upiId: ''
   });
 
   const formRef = useRef(null);
   const successRef = useRef(null);
 
-
+  const paymentMethods = [
+    { id: 'gpay', name: 'Google Pay', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Pay_Logo.svg/800px-Google_Pay_Logo.svg.png' },
+    { id: 'paytm', name: 'Paytm', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Paytm_logo.png/800px-Paytm_logo.png' },
+    { id: 'phonepe', name: 'PhonePe', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/PhonePe_Logo.svg/1280px-PhonePe_Logo.svg.png' },
+    { id: 'bhim', name: 'BHIM UPI', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BHIM_Logo.svg/1200px-BHIM_Logo.svg.png' },
+    { id: 'amazonpay', name: 'Amazon Pay', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Amazon-Pay-Logo.svg/1280px-Amazon-Pay-Logo.svg.png' },
+    { id: 'bank', name: 'Bank Transfer', icon: 'https://cdn-icons-png.flaticon.com/512/2554/2554837.png' }
+  ];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +34,7 @@ function Money() {
   };
 
   const nextStep = () => {
-    if (step < 3) {
+    if (step < 2) {
       setStep(step + 1);
     }
   };
@@ -34,6 +43,10 @@ function Money() {
     if (step > 1) {
       setStep(step - 1);
     }
+  };
+
+  const handleMethodSelect = (methodId) => {
+    setSelectedMethod(methodId);
   };
 
   const handleSubmit = (e) => {
@@ -51,6 +64,7 @@ function Money() {
       gsap.set('.form-container', { display: 'flex', opacity: 0 });
       gsap.to('.form-container', { duration: 1, opacity: 1, ease: "power2.out" });
       setStep(1);
+      setSelectedMethod('');
       setFormData({
         senderName: '',
         senderAccount: '',
@@ -58,7 +72,8 @@ function Money() {
         recipientAccount: '',
         bank: '',
         amount: '',
-        description: ''
+        description: '',
+        upiId: ''
       });
     }});
   };
@@ -68,7 +83,7 @@ function Money() {
       <header className="header">
         <div className="logo">
           <i className="fas fa-money-bill-wave"></i>
-          <span>MoneyTransfer</span>
+          <span>UPI Money Transfer</span>
         </div>
       </header>
 
@@ -77,45 +92,56 @@ function Money() {
           <div className="progress-container">
             <div className="step-indicator">
               <div className={`step-number ${step >= 1 ? 'active' : ''}`}>1</div>
-              <div className="step-label">Sender Info</div>
+              <div className="step-label">Payment Method</div>
             </div>
             <div className="step-connector"></div>
             <div className="step-indicator">
               <div className={`step-number ${step >= 2 ? 'active' : ''}`}>2</div>
-              <div className="step-label">Recipient Info</div>
-            </div>
-            <div className="step-connector"></div>
-            <div className="step-indicator">
-              <div className={`step-number ${step >= 3 ? 'active' : ''}`}>3</div>
-              <div className="step-label">Confirmation</div>
+              <div className="step-label">Transfer Details</div>
             </div>
           </div>
 
           <form onSubmit={handleSubmit} className="transfer-form">
             {step === 1 && (
               <div className="form-step">
-                <h2>Sender Information</h2>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    name="senderName"
-                    value={formData.senderName}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <label>Your Full Name</label>
+                <h2>Select Payment Method</h2>
+                <p className="step-description">Choose how you want to send money</p>
+                
+                <div className="payment-methods-grid">
+                  {paymentMethods.map(method => (
+                    <div 
+                      key={method.id} 
+                      className={`payment-method ${selectedMethod === method.id ? 'selected' : ''}`}
+                      onClick={() => handleMethodSelect(method.id)}
+                    >
+                      <div className="method-icon">
+                        <img src={method.icon} alt={method.name} />
+                      </div>
+                      <span className="method-name">{method.name}</span>
+                    </div>
+                  ))}
                 </div>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    name="senderAccount"
-                    value={formData.senderAccount}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <label>Your Account Number</label>
-                </div>
-                <button type="button" className="btn-next" onClick={nextStep}>
+                
+                {selectedMethod && (
+                  <div className="input-group">
+                    <input
+                      type="text"
+                      name="upiId"
+                      value={formData.upiId}
+                      onChange={handleInputChange}
+                      placeholder="Enter UPI ID or Phone Number"
+                      required
+                    />
+                    <label>UPI ID / Phone Number</label>
+                  </div>
+                )}
+                
+                <button 
+                  type="button" 
+                  className="btn-next" 
+                  onClick={nextStep}
+                  disabled={!selectedMethod}
+                >
                   Continue <i className="fas fa-arrow-right"></i>
                 </button>
               </div>
@@ -123,7 +149,18 @@ function Money() {
 
             {step === 2 && (
               <div className="form-step">
-                <h2>Recipient Information</h2>
+                <h2>Transfer Details</h2>
+                <div className="selected-method-display">
+                  <span>Paying with: </span>
+                  <div className="selected-method">
+                    <img 
+                      src={paymentMethods.find(m => m.id === selectedMethod)?.icon} 
+                      alt={selectedMethod} 
+                    />
+                    <span>{paymentMethods.find(m => m.id === selectedMethod)?.name}</span>
+                  </div>
+                </div>
+                
                 <div className="input-group">
                   <input
                     type="text"
@@ -134,45 +171,7 @@ function Money() {
                   />
                   <label>Recipient Full Name</label>
                 </div>
-                <div className="input-group">
-                  <input
-                    type="text"
-                    name="recipientAccount"
-                    value={formData.recipientAccount}
-                    onChange={handleInputChange}
-                    required
-                  />
-                  <label>Recipient Account Number</label>
-                </div>
-                <div className="input-group">
-                  <select 
-                    name="bank" 
-                    value={formData.bank} 
-                    onChange={handleInputChange}
-                    required
-                  >
-                    <option value="">Select Bank</option>
-                    <option value="Chase Bank">Chase Bank</option>
-                    <option value="Bank of America">Bank of America</option>
-                    <option value="Wells Fargo">Wells Fargo</option>
-                    <option value="Citibank">Citibank</option>
-                  </select>
-                  <label>Bank Name</label>
-                </div>
-                <div className="button-group">
-                  <button type="button" className="btn-prev" onClick={prevStep}>
-                    <i className="fas fa-arrow-left"></i> Back
-                  </button>
-                  <button type="button" className="btn-next" onClick={nextStep}>
-                    Continue <i className="fas fa-arrow-right"></i>
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {step === 3 && (
-              <div className="form-step">
-                <h2>Transfer Details</h2>
+                
                 <div className="input-group">
                   <input
                     type="number"
@@ -181,8 +180,9 @@ function Money() {
                     onChange={handleInputChange}
                     required
                   />
-                  <label>Amount ($)</label>
+                  <label>Amount (₹)</label>
                 </div>
+                
                 <div className="input-group">
                   <input
                     type="text"
@@ -192,13 +192,15 @@ function Money() {
                   />
                   <label>Description (Optional)</label>
                 </div>
+                
                 <div className="summary">
                   <h3>Transaction Summary</h3>
-                  <p><strong>From:</strong> {formData.senderName} ({formData.senderAccount})</p>
-                  <p><strong>To:</strong> {formData.recipientName} ({formData.recipientAccount})</p>
-                  <p><strong>Bank:</strong> {formData.bank}</p>
-                  <p><strong>Amount:</strong> ${formData.amount}</p>
+                  <p><strong>Payment Method:</strong> {paymentMethods.find(m => m.id === selectedMethod)?.name}</p>
+                  <p><strong>Recipient:</strong> {formData.recipientName}</p>
+                  <p><strong>Amount:</strong> ₹{formData.amount}</p>
+                  {formData.description && <p><strong>Description:</strong> {formData.description}</p>}
                 </div>
+                
                 <div className="button-group">
                   <button type="button" className="btn-prev" onClick={prevStep}>
                     <i className="fas fa-arrow-left"></i> Back
@@ -219,9 +221,10 @@ function Money() {
           <h2>Transfer Successful!</h2>
           <p>Your money transfer has been processed successfully.</p>
           <div className="success-details">
-            <p><strong>Transaction ID:</strong> TXN{Math.floor(Math.random() * 1000000)}</p>
-            <p><strong>Amount:</strong> ${formData.amount}</p>
+            <p><strong>Transaction ID:</strong> UPI{Math.floor(Math.random() * 1000000)}</p>
+            <p><strong>Amount:</strong> ₹{formData.amount}</p>
             <p><strong>Recipient:</strong> {formData.recipientName}</p>
+            <p><strong>Method:</strong> {paymentMethods.find(m => m.id === selectedMethod)?.name}</p>
           </div>
           <button className="btn-new-transfer" onClick={resetForm}>
             <i className="fas fa-plus"></i> New Transfer
@@ -231,13 +234,13 @@ function Money() {
 
       <div className="floating-elements">
         <div className="floating-icon icon-1">
-          <i className="fas fa-dollar-sign"></i>
+          <i className="fas fa-rupee-sign"></i>
         </div>
         <div className="floating-icon icon-2">
-          <i className="fas fa-coins"></i>
+          <i className="fas fa-mobile-alt"></i>
         </div>
         <div className="floating-icon icon-3">
-          <i className="fas fa-chart-line"></i>
+          <i className="fas fa-qrcode"></i>
         </div>
       </div>
     </div>
