@@ -94,8 +94,8 @@ const Navbar = () => {
                 {/* Right side - Menu */}
                 <div className="navbar-right">
                     <ul className="nav-links">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/about">About Us</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
                         <li><a href="#elections">Elections</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#multimedia">Multimedia</a></li>
