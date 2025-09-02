@@ -20,7 +20,7 @@ function Money() {
   const successRef = useRef(null);
 
   const paymentMethods = [
-    { id: 'gpay', name: 'Google Pay', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Pay_Logo.svg/800px-Google_Pay_Logo.svg.png' },
+    { id: 'gpay', name: 'Google Pay', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Google_Pay_logo.png/800px-Google_Pay_logo.png' },
     { id: 'paytm', name: 'Paytm', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Paytm_logo.png/800px-Paytm_logo.png' },
     { id: 'phonepe', name: 'PhonePe', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/PhonePe_Logo.svg/1280px-PhonePe_Logo.svg.png' },
     { id: 'bhim', name: 'BHIM UPI', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BHIM_Logo.svg/1200px-BHIM_Logo.svg.png' },
@@ -51,31 +51,35 @@ function Money() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    gsap.to('.form-container', { duration: 0.5, opacity: 0, onComplete: () => {
-      gsap.set('.form-container', { display: 'none' });
-      gsap.set(successRef.current, { display: 'block', opacity: 0 });
-      gsap.to(successRef.current, { duration: 1, opacity: 1, ease: "power2.out" });
-    }});
+    gsap.to('.form-container', {
+      duration: 0.5, opacity: 0, onComplete: () => {
+        gsap.set('.form-container', { display: 'none' });
+        gsap.set(successRef.current, { display: 'block', opacity: 0 });
+        gsap.to(successRef.current, { duration: 1, opacity: 1, ease: "power2.out" });
+      }
+    });
   };
 
   const resetForm = () => {
-    gsap.to(successRef.current, { duration: 0.5, opacity: 0, onComplete: () => {
-      gsap.set(successRef.current, { display: 'none' });
-      gsap.set('.form-container', { display: 'flex', opacity: 0 });
-      gsap.to('.form-container', { duration: 1, opacity: 1, ease: "power2.out" });
-      setStep(1);
-      setSelectedMethod('');
-      setFormData({
-        senderName: '',
-        senderAccount: '',
-        recipientName: '',
-        recipientAccount: '',
-        bank: '',
-        amount: '',
-        description: '',
-        upiId: ''
-      });
-    }});
+    gsap.to(successRef.current, {
+      duration: 0.5, opacity: 0, onComplete: () => {
+        gsap.set(successRef.current, { display: 'none' });
+        gsap.set('.form-container', { display: 'flex', opacity: 0 });
+        gsap.to('.form-container', { duration: 1, opacity: 1, ease: "power2.out" });
+        setStep(1);
+        setSelectedMethod('');
+        setFormData({
+          senderName: '',
+          senderAccount: '',
+          recipientName: '',
+          recipientAccount: '',
+          bank: '',
+          amount: '',
+          description: '',
+          upiId: ''
+        });
+      }
+    });
   };
 
   return (
@@ -106,11 +110,11 @@ function Money() {
               <div className="form-step">
                 <h2>Select Payment Method</h2>
                 <p className="step-description">Choose how you want to send money</p>
-                
+
                 <div className="payment-methods-grid">
                   {paymentMethods.map(method => (
-                    <div 
-                      key={method.id} 
+                    <div
+                      key={method.id}
                       className={`payment-method ${selectedMethod === method.id ? 'selected' : ''}`}
                       onClick={() => handleMethodSelect(method.id)}
                     >
@@ -121,7 +125,7 @@ function Money() {
                     </div>
                   ))}
                 </div>
-                
+
                 {selectedMethod && (
                   <div className="input-group">
                     <input
@@ -135,10 +139,10 @@ function Money() {
                     <label>UPI ID / Phone Number</label>
                   </div>
                 )}
-                
-                <button 
-                  type="button" 
-                  className="btn-next" 
+
+                <button
+                  type="button"
+                  className="btn-next"
                   onClick={nextStep}
                   disabled={!selectedMethod}
                 >
@@ -153,14 +157,14 @@ function Money() {
                 <div className="selected-method-display">
                   <span>Paying with: </span>
                   <div className="selected-method">
-                    <img 
-                      src={paymentMethods.find(m => m.id === selectedMethod)?.icon} 
-                      alt={selectedMethod} 
+                    <img
+                      src={paymentMethods.find(m => m.id === selectedMethod)?.icon}
+                      alt={selectedMethod}
                     />
                     <span>{paymentMethods.find(m => m.id === selectedMethod)?.name}</span>
                   </div>
                 </div>
-                
+
                 <div className="input-group">
                   <input
                     type="text"
@@ -171,7 +175,7 @@ function Money() {
                   />
                   <label>Recipient Full Name</label>
                 </div>
-                
+
                 <div className="input-group">
                   <input
                     type="number"
@@ -182,7 +186,7 @@ function Money() {
                   />
                   <label>Amount (₹)</label>
                 </div>
-                
+
                 <div className="input-group">
                   <input
                     type="text"
@@ -192,7 +196,7 @@ function Money() {
                   />
                   <label>Description (Optional)</label>
                 </div>
-                
+
                 <div className="summary">
                   <h3>Transaction Summary</h3>
                   <p><strong>Payment Method:</strong> {paymentMethods.find(m => m.id === selectedMethod)?.name}</p>
@@ -200,7 +204,7 @@ function Money() {
                   <p><strong>Amount:</strong> ₹{formData.amount}</p>
                   {formData.description && <p><strong>Description:</strong> {formData.description}</p>}
                 </div>
-                
+
                 <div className="button-group">
                   <button type="button" className="btn-prev" onClick={prevStep}>
                     <i className="fas fa-arrow-left"></i> Back
@@ -214,7 +218,7 @@ function Money() {
           </form>
         </div>
 
-        <div className="success-message" ref={successRef} style={{display: 'none'}}>
+        <div className="success-message" ref={successRef} style={{ display: 'none' }}>
           <div className="success-icon">
             <i className="fas fa-check-circle"></i>
           </div>

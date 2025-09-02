@@ -77,10 +77,10 @@ const Navbar = () => {
             <div className="social-bar">
                 <div className="social-icons">
                     <a href="https://facebook.com" target="_blank" rel="noreferrer"><FaFacebookF /></a>
-                    <a href="https://twitter.com" target="_blank" rel="noreferrer"><FaTwitter /></a>
-                    <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
-                    <a href="https://wa.me/" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
-                    <a href="https://youtube.com" target="_blank" rel="noreferrer"><FaYoutube /></a>
+                    <a href="https://x.com/home" target="_blank" rel="noreferrer"><FaTwitter /></a>
+                    <a href="https://www.instagram.com/indianyouthcongress/" target="_blank" rel="noreferrer"><FaInstagram /></a>
+                    <a href="https://www.whatsapp.com/channel/0029Va5dVeU0G0XidNVHiY1Z" target="_blank" rel="noreferrer"><FaWhatsapp /></a>
+                    <a href="https://www.youtube.com/IndianYouthCongress" target="_blank" rel="noreferrer"><FaYoutube /></a>
                 </div>
             </div>
 
