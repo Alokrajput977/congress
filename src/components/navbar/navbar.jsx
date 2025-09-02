@@ -122,8 +122,8 @@ const Navbar = () => {
             {/* Side Drawer for Mobile */}
             <div className={`side-drawer ${open ? "active" : ""}`}>
                 <ul>
-                    <li><a href="#about" onClick={() => setOpen(false)}>About Us</a></li>
-                    <li><a href="#initiatives" onClick={() => setOpen(false)}>Initiatives</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/about">About Us</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
                     <li><a href="#elections" onClick={() => setOpen(false)}>Elections</a></li>
                     <li><a href="#gallery" onClick={() => setOpen(false)}>Gallery</a></li>
                     <li><a href="#multimedia" onClick={() => setOpen(false)}>Multimedia</a></li>
