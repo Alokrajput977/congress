@@ -5,6 +5,7 @@ import "./Gallery.css";
 const Gallery = () => {
     const [selectedImage, setSelectedImage] = useState(null);
 
+
     const images = [
         "https://scontent.fdel72-1.fna.fbcdn.net/v/t39.30808-6/541059464_1368480044638067_6097356057097017528_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_ohc=RcvnqVIYMpAQ7kNvwH9X2YI&_nc_oc=Adl5ObZP_jS3CbObVEi3Jh29sDIS69PpTKz5fWTy7_cKLqdwbwrO66mIz7PFVrZbUOg&_nc_zt=23&_nc_ht=scontent.fdel72-1.fna&_nc_gid=9Clvi233u75D99qN40-c5g&oh=00_AfXTDyMu_p3NINaVB7dCACkTFfRa0wPFHo54_RMCERUQHw&oe=68BC526D",
         "https://scontent-bom2-2.xx.fbcdn.net/v/t39.30808-6/540927046_1367770608042344_2198585336933494952_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=FVxdqXrSLT8Q7kNvwFOtTG8&_nc_oc=AdmWExuK_-n5iXR5HDF_gho0Xplle3zT5qtaJQ7NV_PkznZh6h1uVJuT5GqNxHe-UG4&_nc_zt=23&_nc_ht=scontent-bom2-2.xx&_nc_gid=UvOA_dRVq7zh0wL6w1vy4w&oh=00_AfXrndmb45vq2cCWw4rRv2dGgNnFpLKSO_2AkNVLltsqoA&oe=68BC583E",
@@ -28,86 +29,96 @@ const Gallery = () => {
         "https://scontent.fdel72-1.fna.fbcdn.net/v/t39.30808-6/481782419_1237015367784536_8327719136380922506_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=nB8JF0w79voQ7kNvwENU_Lp&_nc_oc=AdnzGm-va56VVgx_BTcxRwKKd_78JKxdu71Np-mO2e7kA4K-xOHwZDjHCzLsPKx66b0&_nc_zt=23&_nc_ht=scontent.fdel72-1.fna&_nc_gid=J-0dZn1u87vZhOcEL1HjuA&oh=00_AfVygY8oHFNUKIcHNDjmFI2uPfnM7qXLaWJTvqMzBrCDeQ&oe=68BC5741"
     ];
 
-return (
-    <div>
-        {/* Gallery Section */}
-        <div className={`gallery-container ${selectedImage ? "blurred" : ""}`}>
-            <h2 className="gallery-title">Photo Gallery</h2>
-            <div className="gallery-grid">
-                {images.map((src, index) => (
-                    <div className="gallery-item" key={index} onClick={() => setSelectedImage(src)}>
-                        <div className="gallery-card">
-                            <img src={src} alt={`Gallery ${index}`} />
+    return (
+        <div>
+            {/* Back Button */}
+            <div className="back-btn-container">
+                <button className="back-btn" onClick={() => window.history.back()}>
+                    ← Back
+                </button>
+            </div>
+
+            {/* Gallery Section */}
+            <div className={`gallery-container ${selectedImage ? "blurred" : ""}`}>
+                <h2 className="gallery-title">Photo Gallery</h2>
+                <div className="gallery-grid">
+                    {images.map((src, index) => (
+                        <div
+                            className="gallery-item"
+                            key={index}
+                            onClick={() => setSelectedImage(src)}
+                        >
+                            <div className="gallery-card">
+                                <img src={src} alt={`Gallery ${index}`} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {selectedImage && (
+                    <div className="modal" onClick={() => setSelectedImage(null)}>
+                        <span className="close">&times;</span>
+                        <img className="modal-content" src={selectedImage} alt="Enlarged" />
+                    </div>
+                )}
+            </div>
+
+            {/* Footer */}
+            <footer className="footer">
+                <div className="footer-container">
+                    {/* Brand */}
+                    <div className="footer-col">
+                        <h2 className="footer-logo">Congress</h2>
+                        <p className="footer-text">
+                            Pre-independence: Students very prominently and positively participated in the National Movement.
+                        </p>
+                    </div>
+
+                    {/* Quick Links */}
+                    <div className="footer-col">
+                        <h3 className="footer-title">Quick Links</h3>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/services">Services</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Resources */}
+                    <div className="footer-col">
+                        <h3 className="footer-title">Resources</h3>
+                        <ul>
+                            <li><a href="/blog">Blog</a></li>
+                            <li><a href="/faq">FAQs</a></li>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                            <li><a href="/terms">Terms & Conditions</a></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact */}
+                    <div className="footer-col">
+                        <h3 className="footer-title">Contact Us</h3>
+                        <p>AICC Hq, Indira Bhawan, 9A Kotla Marg, New Delhi - 110002</p>
+                        <p>Email : connect@inc.in, indirabhawan@inc.in</p>
+                        <p>Tel : 011-65206520/21, 011-23019080 (24 Akbar Road)</p>
+
+                        <div className="footer-socials">
+                            <a href="#"><FaFacebookF /></a>
+                            <a href="#"><FaTwitter /></a>
+                            <a href="#"><FaInstagram /></a>
+                            <a href="#"><FaLinkedinIn /></a>
                         </div>
                     </div>
-                ))}
-            </div>
-
-            {selectedImage && (
-                <div className="modal" onClick={() => setSelectedImage(null)}>
-                    <span className="close">&times;</span>
-                    <img className="modal-content" src={selectedImage} alt="Enlarged" />
                 </div>
-            )}
+
+                {/* Bottom Bar */}
+                <div className="footer-bottom">
+                    <p>© 2025 Congress. All Rights Reserved.</p>
+                </div>
+            </footer>
         </div>
-
-        {/* Footer */}
-        <footer className="footer">
-            <div className="footer-container">
-
-                {/* Brand */}
-                <div className="footer-col">
-                    <h2 className="footer-logo">Congress</h2>
-                    <p className="footer-text">
-                        Pre-independence: Students very prominently and positively participated in the National Movement.
-                    </p>
-                </div>
-
-                {/* Quick Links */}
-                <div className="footer-col">
-                    <h3 className="footer-title">Quick Links</h3>
-                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/services">Services</a></li>
-                        <li><a href="/contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                {/* Resources */}
-                <div className="footer-col">
-                    <h3 className="footer-title">Resources</h3>
-                    <ul>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/faq">FAQs</a></li>
-                        <li><a href="/privacy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-
-                {/* Contact */}
-                <div className="footer-col">
-                    <h3 className="footer-title">Contact Us</h3>
-                    <p>AICC Hq, Indira Bhawan, 9A Kotla Marg, New Delhi - 110002</p>
-                    <p>Email : connect@inc.in, indirabhawan@inc.in</p>
-                    <p>Tel : 011-65206520/21, 011-23019080 (24 Akbar Road)</p>
-
-                    <div className="footer-socials">
-                        <a href="#"><FaFacebookF /></a>
-                        <a href="#"><FaTwitter /></a>
-                        <a href="#"><FaInstagram /></a>
-                        <a href="#"><FaLinkedinIn /></a>
-                    </div>
-                </div>
-            </div>
-
-            {/* Bottom Bar */}
-            <div className="footer-bottom">
-                <p>© 2025 Congress. All Rights Reserved.</p>
-            </div>
-        </footer>
-    </div>
-);
+    );
 };
 
 export default Gallery;

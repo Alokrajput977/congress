@@ -475,3 +475,25 @@ img.zoomable,
   .left-section .main-image { border-radius: 10px; }
   .more-card-media img { height: 120px; }
 }
+
+
+/* ===== Back Button ===== */
+.back-btn-container {
+  margin: 20px 0;
+}
+
+.back-btn {
+  background: #0056b3;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #003f88;
+}

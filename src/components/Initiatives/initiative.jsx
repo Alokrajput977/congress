@@ -17,7 +17,6 @@ const OurInitiatives = () => {
   // Close modal and clear state
   const closeModal = () => {
     setModalOpen(false);
-    // small delay to clear src if you want (not strictly necessary)
     setTimeout(() => {
       setModalSrc("");
       setModalAlt("");
@@ -48,13 +47,18 @@ const OurInitiatives = () => {
 
   // Click overlay to close (only when clicking the overlay, not the image)
   const handleOverlayMouseDown = (e) => {
-    // if click target is the overlay itself (not children), close
     if (e.target === e.currentTarget) closeModal();
   };
 
-  // Make thumbnails/wide images easy to manage: add zoomable class + onClick
   return (
     <div className={`initiatives-container ${modalOpen ? "blur-background" : ""}`}>
+      {/* 🔙 Back Button */}
+      <div className="back-btn-container">
+        <button className="back-btn" onClick={() => window.history.back()}>
+          ← Back
+        </button>
+      </div>
+
       {/* Header Section */}
       <div className="initiatives-header">
         <h2>Our Initiatives</h2>
@@ -174,7 +178,6 @@ const OurInitiatives = () => {
         <div
           className="modal-inner"
           ref={modalInnerRef}
-          // prevent overlay click from closing when directly clicking inside modal-inner
           onMouseDown={(e) => e.stopPropagation()}
         >
           <button
@@ -185,12 +188,8 @@ const OurInitiatives = () => {
             ✕
           </button>
 
-          {/* large image */}
-          {modalSrc && (
-            <img src={modalSrc} alt={modalAlt} draggable={false} />
-          )}
+          {modalSrc && <img src={modalSrc} alt={modalAlt} draggable={false} />}
 
-          {/* caption (optional) */}
           {modalAlt && <div className="caption">{modalAlt}</div>}
 
           <div className="click-hint">Click outside image or press Esc to close</div>
