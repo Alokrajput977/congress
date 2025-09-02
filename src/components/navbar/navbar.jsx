@@ -124,8 +124,8 @@ const Navbar = () => {
                 <ul>
                     <li><a onClick={() => setOpen(false)} href="/about">About Us</a></li>
                     <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
-                    <li><a href="#elections" onClick={() => setOpen(false)}>Elections</a></li>
                     <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
+                    <li><a href="#elections">Elections</a></li>
                     <li><a href="#multimedia" onClick={() => setOpen(false)}>Multimedia</a></li>
                     <li><a href="#contact" onClick={() => setOpen(false)}>Contact</a></li>
                     <li><a href="#icc" onClick={() => setOpen(false)}>ICC</a></li>
