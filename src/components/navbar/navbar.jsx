@@ -96,19 +96,19 @@ const Navbar = () => {
                     <ul className="nav-links">
                         <li><a onClick={() => setOpen(false)} href="/about">About Us</a></li>
                         <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                         <li><a href="#elections">Elections</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#multimedia">Multimedia</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="#icc">ICC</a></li>
                         <li><a href="#donate">Join</a></li>
                         <li>
-                                   <button
-                            className="contrib-btn"
-                            onClick={() => window.location.href = "/money"}
-                        >
-                            Contribute
-                        </button>
+                            <button
+                                className="contrib-btn"
+                                onClick={() => window.location.href = "/money"}
+                            >
+                                Contribute
+                            </button>
                         </li>
                     </ul>
 
@@ -123,9 +123,9 @@ const Navbar = () => {
             <div className={`side-drawer ${open ? "active" : ""}`}>
                 <ul>
                     <li><a onClick={() => setOpen(false)} href="/about">About Us</a></li>
-                        <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
                     <li><a href="#elections" onClick={() => setOpen(false)}>Elections</a></li>
-                    <li><a href="#gallery" onClick={() => setOpen(false)}>Gallery</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                     <li><a href="#multimedia" onClick={() => setOpen(false)}>Multimedia</a></li>
                     <li><a href="#contact" onClick={() => setOpen(false)}>Contact</a></li>
                     <li><a href="#icc" onClick={() => setOpen(false)}>ICC</a></li>
