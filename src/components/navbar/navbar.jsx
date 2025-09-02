@@ -99,7 +99,7 @@ const Navbar = () => {
                         <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                         <li><a href="#elections">Elections</a></li>
                         <li><a href="#multimedia">Multimedia</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
                         <li><a href="#icc">ICC</a></li>
                         <li><a href="#donate">Join</a></li>
                         <li>
@@ -127,7 +127,7 @@ const Navbar = () => {
                     <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                     <li><a href="#elections">Elections</a></li>
                     <li><a href="#multimedia" onClick={() => setOpen(false)}>Multimedia</a></li>
-                    <li><a href="#contact" onClick={() => setOpen(false)}>Contact</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
                     <li><a href="#icc" onClick={() => setOpen(false)}>ICC</a></li>
                     <li><a href="#donate" onClick={() => setOpen(false)}>Join</a></li>
                     <li>

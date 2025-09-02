@@ -5,6 +5,7 @@ import Money from './components/money';
 import AboutPage from './components/about/about';
 import OurInitiatives from './components/Initiatives/initiative';
 import Gallery from './components/Gallery/gallery';
+import ContactPage from './components/contect/contect';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/initiatives" element={<OurInitiatives/>}/>
           <Route path="/gallery" element={<Gallery/>}/>
+          <Route path="/contact" element={<ContactPage/>}/>
         </Routes>
     </Router>
   )
