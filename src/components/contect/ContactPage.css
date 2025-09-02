@@ -117,6 +117,7 @@
   background: #e63946;
 }
 
+
 /* ===== Back Button ===== */
 .back-btn-wrapper {
   margin: 20px;
@@ -182,11 +183,64 @@
   }
 }
 
+/* ===== Responsive Fix for Small Screens (400px and below) ===== */
 @media (max-width: 400px) {
-  .contact-page .footer-container {
-    grid-template-columns: 1fr;
+  .contact-page .contact-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
   }
-  .contact-page .footer-logo {
+
+  .contact-page .contact-form,
+  .contact-page .contact-info {
+    width: 100%;
+    max-width: 100%;
     text-align: center;
+  }
+
+  .contact-page .contact-form .form-row {
+    flex-direction: column;
+  }
+
+  .contact-page .contact-info p {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+  }
+
+  .contact-page .social-icons {
+    justify-content: center;
+  }
+}
+
+/* ===== Extra Fix for Very Small Screens (300px and below) ===== */
+@media (max-width: 300px) {
+  .contact-page .contact-container {
+    padding: 10px;
+  }
+
+  .contact-page .contact-form,
+  .contact-page .contact-info {
+    padding: 15px;
+  }
+
+  .contact-page .contact-form input,
+  .contact-page .contact-form textarea {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .contact-page .contact-form button {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .contact-page .contact-info p {
+    font-size: 0.85rem;
+  }
+
+  .contact-page .social-icons a {
+    font-size: 0.9rem;
+    padding: 8px;
   }
 }

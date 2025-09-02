@@ -1,4 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn
+} from "react-icons/fa";
 import "./OurInitiatives.css";
 
 const OurInitiatives = () => {
@@ -65,8 +71,7 @@ const OurInitiatives = () => {
         <p>
           These initiatives are demonstration of our commitment to addressing
           societal concerns and promoting our vision for a better community and
-          country. They reflect our dedication to making positive changes and
-          shaping policies that align with our values and priorities.
+          country.
         </p>
       </div>
 
@@ -192,9 +197,67 @@ const OurInitiatives = () => {
 
           {modalAlt && <div className="caption">{modalAlt}</div>}
 
-          <div className="click-hint">Click outside image or press Esc to close</div>
+          <div className="click-hint">
+            Click outside image or press Esc to close
+          </div>
         </div>
       </div>
+
+      {/* ===== Footer ===== */}
+      <footer className="footer">
+        <div className="footer-container">
+          {/* Brand */}
+          <div className="footer-col">
+            <h2 className="footer-logo">Congress</h2>
+            <p className="footer-text">
+              Pre-independence: Students very prominently and positively
+              participated in the National Movement.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div className="footer-col">
+            <h3 className="footer-title">Quick Links</h3>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Services</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div className="footer-col">
+            <h3 className="footer-title">Resources</h3>
+            <ul>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/faq">FAQs</a></li>
+              <li><a href="/privacy">Privacy Policy</a></li>
+              <li><a href="/terms">Terms & Conditions</a></li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div className="footer-col">
+            <h3 className="footer-title">Contact Us</h3>
+            <p>AICC Hq, Indira Bhawan, 9A Kotla Marg, New Delhi - 110002</p>
+            <p>Email : connect@inc.in, indirabhawan@inc.in</p>
+            <p>Tel : 011-65206520/21, 011-23019080 (24 Akbar Road)</p>
+
+            <div className="footer-socials">
+              <a href="#"><FaFacebookF /></a>
+              <a href="#"><FaTwitter /></a>
+              <a href="#"><FaInstagram /></a>
+              <a href="#"><FaLinkedinIn /></a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="footer-bottom">
+          <p>© 2025 Congress. All Rights Reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 };
