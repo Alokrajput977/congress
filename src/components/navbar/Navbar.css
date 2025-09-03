@@ -124,6 +124,7 @@
 
 .side-drawer ul {
   list-style: none;
+  padding-top: 50px;
 }
 
 .side-drawer li {
