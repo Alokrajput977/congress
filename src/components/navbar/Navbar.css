@@ -109,7 +109,7 @@
   position: fixed;
   top: 0;
   right: -300px;
-  width: 200px;
+  width: 250px;
   height: 100vh;
   background-color: white;
   z-index: 1001;
@@ -135,6 +135,8 @@
   color: #333;
   font-weight: 500;
   transition: color 0.3s ease;
+  margin-left: 20px;
+  
 }
 
 .side-drawer a:hover {
