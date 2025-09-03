@@ -8,6 +8,7 @@ import Gallery from './components/Gallery/gallery';
 import ContactPage from './components/contect/contect';
 import Multimedia from './components/media/media';
 import WomanSafety from './components/icc/icc';
+import JoinPage from './components/join/join';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/contact" element={<ContactPage/>}/>
           <Route path="/media" element={<Multimedia/>}/>
           <Route path="/woman-safety" element={<WomanSafety/>}/>
+          <Route path="/join" element={<JoinPage/>}/>
         </Routes>
     </Router>
   )

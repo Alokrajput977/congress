@@ -1,0 +1,315 @@
+.join-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.header p {
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  gap: 1.5rem;
+}
+
+.party-info {
+  width: 100%;
+}
+
+.join-section {
+  width: 100%;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.slogan-section {
+  margin-bottom: 1.5rem;
+}
+
+.slogan-section h2 {
+  color: #1e3c72;
+  border-bottom: 2px solid #2a5298;
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+.slogan-card {
+  background: white;
+  padding: 1.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-top: 0.8rem;
+}
+
+.slogan-card h3 {
+  color: #2a5298;
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.slogan-card p {
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.image-section {
+  margin-top: 1.5rem;
+}
+
+.image-section img {
+  width: 100%;
+  border-radius: 6px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.join-section h2 {
+  color: #1e3c72;
+  margin-top: 0;
+  font-size: 1.4rem;
+}
+
+.join-section > p {
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #2a5298;
+  box-shadow: 0 0 0 2px rgba(42, 82, 152, 0.2);
+}
+
+.join-btn {
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  font-weight: 600;
+}
+
+.join-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.back-btn:hover {
+  background: #1e3c72;
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 350px) {
+  .header {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .header p {
+    font-size: 0.9rem;
+  }
+  
+  .content-container {
+    padding: 0 0.8rem;
+    margin: 1.2rem auto;
+    gap: 1.2rem;
+  }
+  
+  .join-section {
+    padding: 1.2rem;
+  }
+  
+  .slogan-section h2 {
+    font-size: 1.2rem;
+  }
+  
+  .slogan-card {
+    padding: 1rem;
+  }
+  
+  .slogan-card h3 {
+    font-size: 1rem;
+  }
+  
+  .slogan-card p {
+    font-size: 0.9rem;
+  }
+  
+  .join-section h2 {
+    font-size: 1.2rem;
+  }
+  
+  .join-section > p {
+    font-size: 0.9rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+  
+  .join-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+  
+  .back-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 400px) {
+  .header h1 {
+    font-size: 1.7rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  .slogan-section h2 {
+    font-size: 1.25rem;
+  }
+  
+  .slogan-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .join-section h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .header h1 {
+    font-size: 2rem;
+  }
+  
+  .content-container {
+    padding: 0 1rem;
+    margin: 1.5rem auto;
+  }
+  
+  .join-section {
+    padding: 1.5rem;
+  }
+  
+  .slogan-section h2 {
+    font-size: 1.4rem;
+  }
+  
+  .join-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .back-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .party-info {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .join-section {
+    flex: 1;
+    min-width: 300px;
+    padding: 2rem;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .back-btn {
+    bottom: 20px;
+    left: 20px;
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .header p {
+    font-size: 1.2rem;
+  }
+}

@@ -100,8 +100,8 @@ const Navbar = () => {
                         <li><a href="#elections">Elections</a></li>
                         <li><a onClick={() => setOpen(false)} href="/media">Multimedia</a></li>
                         <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
-                        <li><a onClick={() => setOpen(false)}  href="woman-safety" >ICC</a></li>
-                        <li><a href="#donate">Join</a></li>
+                        <li><a onClick={() => setOpen(false)} href="woman-safety" >ICC</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/join">Join</a></li>
                         <li>
                             <button
                                 className="contrib-btn"
@@ -128,8 +128,8 @@ const Navbar = () => {
                     <li><a href="#elections">Elections</a></li>
                     <li><a onClick={() => setOpen(false)} href="/media">Multimedia</a></li>
                     <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
-                    <li><a onClick={() => setOpen(false)}  href="woman-safety" >ICC</a></li>
-                    <li><a href="#donate" onClick={() => setOpen(false)}>Join</a></li>
+                    <li><a onClick={() => setOpen(false)} href="woman-safety" >ICC</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/join">Join</a></li>
                     <li>
                         <button
                             className="contrib-btn"
