@@ -185,21 +185,13 @@ const OurInitiatives = () => {
           ref={modalInnerRef}
           onMouseDown={(e) => e.stopPropagation()}
         >
-          <button
-            className="close-btn"
-            aria-label="Close preview"
-            onClick={closeModal}
-          >
-            ✕
-          </button>
+     
 
           {modalSrc && <img src={modalSrc} alt={modalAlt} draggable={false} />}
 
           {modalAlt && <div className="caption">{modalAlt}</div>}
 
-          <div className="click-hint">
-            Click outside image or press Esc to close
-          </div>
+
         </div>
       </div>
 

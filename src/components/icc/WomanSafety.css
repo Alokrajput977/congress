@@ -1,0 +1,383 @@
+/* File: WomanSafety.css */
+.ws-page {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    background: linear-gradient(to bottom, #f9f9f9 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.ws-hero {
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
+    padding: 2rem 5%;
+    background: linear-gradient(135deg, #ffffff 0%, #e6f0ff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.ws-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(45deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+    opacity: 0.1;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+}
+
+.ws-hero-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.ws-hero-art {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.ws-hero-art img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.ws-badge {
+    display: inline-block;
+    background: linear-gradient(to right, #138808, #0a5e04);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+}
+
+.ws-main-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1a3659;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.ws-tagline {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #4a5568;
+    margin-bottom: 2.5rem;
+}
+
+.ws-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.ws-back-btn {
+    background: transparent;
+    border: 2px solid #138808;
+    color: #138808;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ws-back-btn:hover {
+    background: #138808;
+    color: white;
+}
+
+.ws-cta {
+    background: linear-gradient(to right, #FF9933, #ff7b00);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ws-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 153, 51, 0.3);
+}
+
+/* Statistics Section */
+.ws-stats {
+    padding: 4rem 5%;
+    background: #f8f9fa;
+    text-align: center;
+}
+
+.ws-section-title {
+    font-size: 2.2rem;
+    color: #1a3659;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+}
+
+.ws-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #FF9933, #138808);
+    border-radius: 2px;
+}
+
+.ws-stat-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.ws-stat-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+}
+
+.ws-stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.ws-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #138808;
+    margin-bottom: 0.5rem;
+}
+
+.ws-stat-label {
+    color: #4a5568;
+    font-weight: 500;
+}
+
+/* Details Section */
+.ws-details {
+    padding: 5rem 5%;
+}
+
+.ws-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ws-slogan {
+    font-size: 1.8rem;
+    color: #1a3659;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 3rem;
+    font-weight: 600;
+}
+
+.ws-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid #138808;
+}
+
+.ws-card-content {
+    padding: 3rem;
+}
+
+.ws-paragraph {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #4a5568;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.ws-features {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.ws-feature {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.ws-feature:hover {
+    background: #e6f7ff;
+    transform: translateY(-5px);
+}
+
+.ws-feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.ws-feature h4 {
+    font-size: 1.3rem;
+    color: #1a3659;
+    margin-bottom: 1rem;
+}
+
+.ws-feature p {
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* CTA Section */
+.ws-cta-section {
+    padding: 4rem 5%;
+    background: linear-gradient(135deg, #1a3659 0%, #2d4a7c 100%);
+    color: white;
+    text-align: center;
+}
+
+.ws-cta-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.ws-cta-text {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.ws-cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.ws-pledge-btn,
+.ws-volunteer-btn {
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ws-pledge-btn {
+    background: #FF9933;
+    color: white;
+    border: none;
+}
+
+.ws-volunteer-btn {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.ws-pledge-btn:hover {
+    background: #ff7b00;
+    transform: translateY(-3px);
+}
+
+.ws-volunteer-btn:hover {
+    background: white;
+    color: #1a3659;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.ws-footer {
+    padding: 2rem 5%;
+    background: #f1f5f9;
+    text-align: center;
+}
+
+.ws-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.ws-congress-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #1a3659;
+}
+
+.ws-hand-logo {
+    background: #138808;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .ws-hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 3rem;
+    }
+
+    .ws-hero::before {
+        width: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 30%, 0 60%);
+    }
+
+    .ws-main-title {
+        font-size: 2.2rem;
+    }
+
+    .ws-actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .ws-main-title {
+        font-size: 1.8rem;
+    }
+
+    .ws-section-title {
+        font-size: 1.8rem;
+    }
+
+    .ws-slogan {
+        font-size: 1.4rem;
+    }
+
+    .ws-cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}

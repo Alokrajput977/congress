@@ -6,6 +6,8 @@ import AboutPage from './components/about/about';
 import OurInitiatives from './components/Initiatives/initiative';
 import Gallery from './components/Gallery/gallery';
 import ContactPage from './components/contect/contect';
+import Multimedia from './components/media/media';
+import WomanSafety from './components/icc/icc';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
           <Route path="/initiatives" element={<OurInitiatives/>}/>
           <Route path="/gallery" element={<Gallery/>}/>
           <Route path="/contact" element={<ContactPage/>}/>
+          <Route path="/media" element={<Multimedia/>}/>
+          <Route path="/woman-safety" element={<WomanSafety/>}/>
         </Routes>
     </Router>
   )

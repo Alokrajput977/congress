@@ -98,9 +98,9 @@ const Navbar = () => {
                         <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
                         <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                         <li><a href="#elections">Elections</a></li>
-                        <li><a href="#multimedia">Multimedia</a></li>
+                        <li><a onClick={() => setOpen(false)} href="/media">Multimedia</a></li>
                         <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
-                        <li><a href="#icc">ICC</a></li>
+                        <li><a onClick={() => setOpen(false)}  href="woman-safety" >ICC</a></li>
                         <li><a href="#donate">Join</a></li>
                         <li>
                             <button
@@ -126,9 +126,9 @@ const Navbar = () => {
                     <li><a onClick={() => setOpen(false)} href="/Initiatives">Initiatives</a></li>
                     <li><a onClick={() => setOpen(false)} href="/gallery">gallery</a></li>
                     <li><a href="#elections">Elections</a></li>
-                    <li><a href="#multimedia" onClick={() => setOpen(false)}>Multimedia</a></li>
+                    <li><a onClick={() => setOpen(false)} href="/media">Multimedia</a></li>
                     <li><a onClick={() => setOpen(false)} href="/contact">Contact</a></li>
-                    <li><a href="#icc" onClick={() => setOpen(false)}>ICC</a></li>
+                    <li><a onClick={() => setOpen(false)}  href="woman-safety" >ICC</a></li>
                     <li><a href="#donate" onClick={() => setOpen(false)}>Join</a></li>
                     <li>
                         <button
@@ -148,8 +148,8 @@ const Navbar = () => {
             {/* Banner Section */}
             <section className="banner-section">
                 <div className="banner-container">
-                    <img src="/banne.png" alt="Indian Youth Congress Banner" className="banner-img" />
-                    <div className="banner-overlay">
+                    <iframe src="https://www.youtube.com/embed/JpBNU-EXoZ4?si=K8VXeuK3FJd5XRhy" frameborder="0" className="banner-img"></iframe>
+                    {/* <div className="banner-overlay">
                         <div className="banner-content">
                             <h1 className="banner-title">WHO WE ARE</h1>
                             <h2 className="banner-subtitle">Welcome to Indian Youth Congress</h2>
@@ -159,7 +159,7 @@ const Navbar = () => {
                             </p>
                             <button className="banner-cta">Learn More</button>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
