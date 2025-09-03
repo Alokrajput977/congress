@@ -1,315 +1,314 @@
-.join-page {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* JoinPage.css */
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.join-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    position: relative;
+}
+
+/* Back Button */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #DC143C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #B22222;
+    transform: translateY(-2px);
+}
+
+/* Header Styles */
 .header {
-  background: linear-gradient(to right, #1e3c72, #2a5298);
-  color: white;
-  text-align: center;
-  padding: 1.5rem 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(to right, #DC143C, #8B0000);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .header p {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  opacity: 0.9;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
 }
 
+.header-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Container */
 .content-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 1500px;
-  margin: 1.5rem auto;
-  padding: 0 1rem;
-  gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    gap: 2rem;
 }
 
 .party-info {
-  width: 100%;
+    flex: 1;
+    min-width: 300px;
 }
 
 .join-section {
-  width: 100%;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-width: 300px;
 }
 
+/* Info Sections */
+.info-section,
 .slogan-section {
-  margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+.info-section:hover,
+.slogan-section:hover {
+    transform: translateY(-5px);
+}
+
+.info-section h2,
 .slogan-section h2 {
-  color: #1e3c72;
-  border-bottom: 2px solid #2a5298;
-  padding-bottom: 0.5rem;
-  margin-top: 0;
-  font-size: 1.3rem;
+    color: #DC143C;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #DC143C;
+    padding-bottom: 0.5rem;
 }
 
+.info-section p {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Slogan Cards */
 .slogan-card {
-  background: white;
-  padding: 1.2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  margin-top: 0.8rem;
+    background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+    padding: 1.5rem;
+    border-radius: 8px;
+    color: white;
+    margin-top: 1rem;
 }
 
 .slogan-card h3 {
-  color: #2a5298;
-  margin-top: 0;
-  font-size: 1.1rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .slogan-card p {
-  color: #555;
-  line-height: 1.5;
-  font-size: 0.95rem;
+    line-height: 1.6;
 }
 
-.image-section {
-  margin-top: 1.5rem;
+/* Image Gallery */
+.image-gallery {
+    margin-top: 2rem;
 }
 
-.image-section img {
-  width: 100%;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
 }
 
-.join-section h2 {
-  color: #1e3c72;
-  margin-top: 0;
-  font-size: 1.4rem;
+.gallery-item {
+    flex: 1;
+    min-width: 200px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
-.join-section > p {
-  color: #555;
-  margin-bottom: 1.5rem;
-  line-height: 1.5;
-  font-size: 0.95rem;
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.gallery-item p {
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    color: #DC143C;
+}
+
+/* Join Section */
+.join-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.join-header h2 {
+    color: #DC143C;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.join-header p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.join-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
-  margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
 .form-group label {
-  display: block;
-  margin-bottom: 0.4rem;
-  font-weight: 600;
-  color: #333;
-  font-size: 0.95rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
 }
 
 .form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.7rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 0.95rem;
-  transition: border-color 0.3s;
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #2a5298;
-  box-shadow: 0 0 0 2px rgba(42, 82, 152, 0.2);
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #DC143C;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(220, 20, 60, 0.2);
 }
 
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group input {
+    width: auto;
+    margin-right: 10px;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+/* Join Button */
 .join-btn {
-  background: linear-gradient(to right, #1e3c72, #2a5298);
-  color: white;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-  font-weight: 600;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(to right, #DC143C, #8B0000);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .join-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #B22222, #8B0000);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.3);
 }
 
-
-
-.back-btn:hover {
-  background: #1e3c72;
-}
-
-/* Media Queries for Responsiveness */
-@media (min-width: 350px) {
-  .header {
-    padding: 1.2rem 0.8rem;
-  }
-  
-  .header h1 {
-    font-size: 1.5rem;
-  }
-  
-  .header p {
-    font-size: 0.9rem;
-  }
-  
-  .content-container {
-    padding: 0 0.8rem;
-    margin: 1.2rem auto;
-    gap: 1.2rem;
-  }
-  
-  .join-section {
-    padding: 1.2rem;
-  }
-  
-  .slogan-section h2 {
-    font-size: 1.2rem;
-  }
-  
-  .slogan-card {
-    padding: 1rem;
-  }
-  
-  .slogan-card h3 {
-    font-size: 1rem;
-  }
-  
-  .slogan-card p {
-    font-size: 0.9rem;
-  }
-  
-  .join-section h2 {
-    font-size: 1.2rem;
-  }
-  
-  .join-section > p {
-    font-size: 0.9rem;
-  }
-  
-  .form-group label {
-    font-size: 0.9rem;
-  }
-  
-  .form-group input,
-  .form-group textarea {
-    padding: 0.6rem;
-    font-size: 0.9rem;
-  }
-  
-  .join-btn {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.95rem;
-  }
-  
-  .back-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-}
-
-@media (min-width: 400px) {
-  .header h1 {
-    font-size: 1.7rem;
-  }
-  
-  .header p {
-    font-size: 1rem;
-  }
-  
-  .slogan-section h2 {
-    font-size: 1.25rem;
-  }
-  
-  .slogan-card h3 {
-    font-size: 1.1rem;
-  }
-  
-  .join-section h2 {
-    font-size: 1.3rem;
-  }
-}
-
-@media (min-width: 576px) {
-  .header {
-    padding: 1.5rem 1rem;
-  }
-  
-  .header h1 {
-    font-size: 2rem;
-  }
-  
-  .content-container {
-    padding: 0 1rem;
-    margin: 1.5rem auto;
-  }
-  
-  .join-section {
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
     padding: 1.5rem;
-  }
-  
-  .slogan-section h2 {
-    font-size: 1.4rem;
-  }
-  
-  .join-section h2 {
-    font-size: 1.5rem;
-  }
-  
-  .back-btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 0.95rem;
-  }
+    margin-top: 3rem;
 }
 
-@media (min-width: 768px) {
-  .content-container {
-    flex-direction: row;
-    gap: 2rem;
-  }
-  
-  .party-info {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .join-section {
-    flex: 1;
-    min-width: 300px;
-    padding: 2rem;
-  }
-  
-  .header h1 {
-    font-size: 2.2rem;
-  }
-  
-  .back-btn {
-    bottom: 20px;
-    left: 20px;
-    padding: 0.75rem 1.5rem;
-  }
+.footer p {
+    margin-bottom: 0.5rem;
 }
 
-@media (min-width: 992px) {
-  .header h1 {
-    font-size: 2.5rem;
-  }
-  
-  .header p {
-    font-size: 1.2rem;
-  }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .gallery-container {
+        flex-direction: column;
+    }
+
+    .back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .join-form {
+        padding: 1.5rem;
+    }
+
+    .slogan-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .header h1 {
+        font-size: 1.8rem;
+    }
 }
